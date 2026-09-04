@@ -58,5 +58,5 @@ export default function CallCenterAnim() {
     };
   }, []);
 
-  return <div ref={ref} className="h-14 w-14" />;
+  return <div ref={ref} className="h-11 w-11" />;
 }

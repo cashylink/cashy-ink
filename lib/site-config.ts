@@ -34,3 +34,33 @@ export function whatsappSubscribeUrl(planName: string, priceLabel: string) {
     `مرحبًا، أريد الاشتراك في باقة ${planName} من Cashy Link بسعر ${priceLabel} جنيه.`,
   );
 }
+
+export function whatsappDiscountSubscribeUrl({
+  planName,
+  period,
+  originalLabel,
+  discountedLabel,
+  savedLabel,
+  percent,
+}: {
+  planName: string;
+  period: string;
+  originalLabel: string;
+  discountedLabel: string;
+  savedLabel: string;
+  percent: string;
+}) {
+  return whatsappUrl(
+    [
+      "مرحبًا، أريد الاستفادة من عرض الخصم والاشتراك في Cashy Link.",
+      "",
+      "تفاصيل العرض:",
+      `• الباقة: ${planName}`,
+      `• المدة: ${period}`,
+      `• السعر الأصلي: ${originalLabel} جنيه`,
+      `• نسبة الخصم: ${percent}٪`,
+      `• السعر بعد الخصم: ${discountedLabel} جنيه`,
+      `• التوفير: ${savedLabel} جنيه`,
+    ].join("\n"),
+  );
+}

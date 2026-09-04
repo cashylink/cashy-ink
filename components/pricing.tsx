@@ -1,4 +1,5 @@
 import { whatsappSubscribeUrl } from "@/lib/site-config";
+import { plans, toArabicDigits } from "@/lib/plans";
 import Spotlight from "@/components/spotlight";
 
 const secondaryBtn =
@@ -6,71 +7,6 @@ const secondaryBtn =
 
 const primaryBtn =
   "btn w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%]";
-
-const plans = [
-  {
-    name: "ربع سنوية",
-    summary: "٣ أشهر وصول كامل",
-    price: "٦٠٠",
-    period: "٣ أشهر",
-    extra: "مناسبة لتجربة Cashy Link والبدء بإدارة شغلك بكل الميزات.",
-    features: [
-      "دعم 5 مرات شهريًا",
-      "عدد محافظ 15 محفظة",
-      "استخدام جهاز واحد فقط (كمبيوتر أو موبايل)",
-      "إمكانية إضافة 1 كاشير",
-    ],
-    featured: false,
-    badge: "",
-  },
-  {
-    name: "نصف سنوية",
-    summary: "٦ أشهر وصول كامل",
-    price: "١٠٠٠",
-    period: "٦ أشهر",
-    extra: "اختيار مناسب لو عايز تستخدم Cashy Link لفترة أطول وتدير شغلك بسهولة.",
-    features: [
-      "دعم حتى 10 مرات شهريًا",
-      "عدد محافظ 35 محفظة",
-      "استخدام جهازين معًا",
-      "إمكانية إضافة 2 كاشير",
-    ],
-    featured: false,
-    badge: "",
-  },
-  {
-    name: "سنوية",
-    summary: "١٢ شهرًا وصول كامل",
-    price: "١٦٠٠",
-    period: "سنة",
-    extra: "أفضل اختيار للمحلات والتجار اللي بيعتمدوا على Cashy Link بشكل يومي.",
-    features: [
-      "دعم طوال السنة",
-      "عدد محافظ 45 محفظة",
-      "استخدام 3 أجهزة",
-      "إمكانية إضافة 3 كاشير",
-      "يعمل بها وضع الأونلاين",
-    ],
-    featured: true,
-    badge: "الأكثر طلبًا",
-  },
-  {
-    name: "مدى الحياة",
-    summary: "دفعة واحدة — بدون تجديد",
-    price: "٥٠٠٠",
-    period: "مرة واحدة",
-    extra: "ادفع مرة واحدة واستمر في استخدام الباقة بدون تجديد.",
-    features: [
-      "دعم مجاني",
-      "عدد محافظ مفتوح",
-      "إمكانية استخدام 3 أجهزة معًا",
-      "إمكانية إضافة 4 كاشير",
-      "يعمل بها وضع الأونلاين",
-    ],
-    featured: false,
-    badge: "دفعة واحدة",
-  },
-];
 
 export default function Pricing() {
   return (
@@ -113,7 +49,7 @@ export default function Pricing() {
                   <p className="mb-4 text-sm text-gray-400">{plan.summary}</p>
                   <div className="mb-2 flex flex-wrap items-baseline gap-1">
                     <span className="font-nacelle text-4xl font-semibold text-white">
-                      {plan.price}
+                      {toArabicDigits(plan.price)}
                     </span>
                     <span className="text-gray-300">ج.م</span>
                     <span className="text-sm text-gray-400">/ {plan.period}</span>
@@ -136,7 +72,7 @@ export default function Pricing() {
                   </ul>
                   <a
                     className={plan.featured ? primaryBtn : secondaryBtn}
-                    href={whatsappSubscribeUrl(plan.name, plan.price)}
+                    href={whatsappSubscribeUrl(plan.name, toArabicDigits(plan.price))}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

@@ -94,15 +94,14 @@ export default function SupportChat() {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="flex flex-col items-center gap-2"
+        className="flex flex-col items-center gap-1.5"
         aria-label="تواصل معنا"
         aria-expanded={open}
       >
-        <span className="relative flex h-[4.25rem] w-[4.25rem] items-center justify-center rounded-full bg-linear-to-br from-indigo-500 to-indigo-600 p-[3px] shadow-[0_12px_36px_rgba(47,107,255,.55)] transition hover:scale-105">
-          <span className="pointer-events-none absolute -inset-1 animate-ping rounded-full bg-indigo-400/35" />
+        <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-br from-indigo-500 to-indigo-600 p-[2px] shadow-[0_10px_28px_rgba(47,107,255,.5)] transition hover:scale-105">
           {open ? (
             <span className="relative flex h-full w-full items-center justify-center rounded-full bg-white text-gray-900">
-              <svg width="18" height="18" viewBox="0 0 14 14" fill="none">
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
                 <path
                   d="M3 3l8 8M11 3l-8 8"
                   stroke="currentColor"
@@ -117,7 +116,7 @@ export default function SupportChat() {
             </span>
           )}
         </span>
-        <span className="relative z-10 whitespace-nowrap rounded-full bg-linear-to-l from-indigo-600 to-indigo-500 px-3 py-1 font-nacelle text-xs font-semibold text-white shadow-[0_8px_20px_rgba(47,107,255,.35)]">
+        <span className="relative z-10 whitespace-nowrap rounded-full bg-linear-to-l from-indigo-600 to-indigo-500 px-2.5 py-0.5 font-nacelle text-[11px] font-semibold text-white shadow-[0_6px_16px_rgba(47,107,255,.3)]">
           تواصل معنا
         </span>
       </button>

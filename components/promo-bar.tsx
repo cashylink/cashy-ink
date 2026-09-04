@@ -48,7 +48,7 @@ export default function PromoBar({ children }: { children: ReactNode }) {
             <span className="ml-1 inline-flex rounded-full bg-[#dc2626] px-1.5 py-0.5 text-[11px] font-bold leading-none text-white">
               خصم {toArabicDigits(DISCOUNT_PERCENT)}٪
             </span>{" "}
-            على أسعار الاشتراك
+            على أسعار الاشتراك — لفترة محدودة
           </p>
           <button
             type="button"

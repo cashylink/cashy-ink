@@ -10,7 +10,7 @@ import {
 import { whatsappDiscountSubscribeUrl } from "@/lib/site-config";
 
 const enjoyBtn =
-  "shrink-0 rounded-md bg-[#dc2626] px-2.5 py-0.5 text-xs font-semibold text-white hover:bg-[#b91c1c]";
+  "shrink-0 rounded-md bg-[#dc2626] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white hover:bg-[#b91c1c] sm:px-2.5 sm:text-xs";
 
 export default function PromoBar({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -41,14 +41,15 @@ export default function PromoBar({ children }: { children: ReactNode }) {
     <div className="relative sticky top-0 z-40 bg-gray-950">
       <div className="overflow-hidden border-b border-red-500/25 bg-gray-950">
         <div
-          className="mx-auto flex max-w-6xl flex-nowrap items-center justify-center gap-2 px-4 py-1 sm:px-6"
+          className="mx-auto flex max-w-6xl flex-nowrap items-center justify-center gap-1.5 px-2 py-1 sm:gap-2 sm:px-6"
           dir="rtl"
         >
-          <p className="min-w-0 truncate text-xs font-medium leading-none text-gray-200">
-            <span className="ml-1 inline-flex rounded-full bg-[#dc2626] px-1.5 py-0.5 text-[11px] font-bold leading-none text-white">
+          <p className="flex min-w-0 items-center gap-1 text-[10px] font-medium leading-none text-gray-200 sm:gap-1.5 sm:text-xs">
+            <span className="inline-flex shrink-0 rounded-full bg-[#dc2626] px-1 py-0.5 text-[10px] font-bold leading-none text-white sm:px-1.5 sm:text-[11px]">
               خصم {toArabicDigits(DISCOUNT_PERCENT)}٪
-            </span>{" "}
-            على أسعار الاشتراك — لفترة محدودة
+            </span>
+            <span className="hidden min-[380px]:inline">على أسعار الاشتراك</span>
+            <span className="shrink-0 text-red-400">لفترة محدودة</span>
           </p>
           <button
             type="button"

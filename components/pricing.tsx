@@ -11,7 +11,7 @@ const primaryBtn =
 export default function Pricing() {
   return (
     <section id="pricing">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
           <div className="mx-auto max-w-3xl pb-12 text-center md:pb-16">
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50">
@@ -27,7 +27,7 @@ export default function Pricing() {
             </p>
           </div>
 
-          <Spotlight className="group mx-auto grid max-w-sm items-stretch gap-6 sm:max-w-none sm:grid-cols-2 xl:max-w-none xl:grid-cols-4">
+          <Spotlight className="group mx-auto grid max-w-sm items-stretch gap-6 sm:max-w-none sm:grid-cols-2 lg:max-w-none lg:grid-cols-4">
             {plans.map((plan) => (
               <div
                 key={plan.name}

@@ -4,97 +4,51 @@ import { useState } from "react";
 import useMasonry from "@/utils/useMasonry";
 import Image, { StaticImageData } from "next/image";
 import CardScene, { type SceneKind } from "@/components/card-scene";
-import TestimonialImg01 from "@/public/images/testimonial-01.jpg";
-import TestimonialImg02 from "@/public/images/testimonial-02.jpg";
-import TestimonialImg03 from "@/public/images/testimonial-03.jpg";
-import TestimonialImg04 from "@/public/images/testimonial-04.jpg";
-import TestimonialImg05 from "@/public/images/testimonial-05.jpg";
-import TestimonialImg06 from "@/public/images/testimonial-06.jpg";
-import TestimonialImg07 from "@/public/images/testimonial-07.jpg";
-import TestimonialImg08 from "@/public/images/testimonial-08.jpg";
-import TestimonialImg09 from "@/public/images/testimonial-09.jpg";
+import logo from "@/public/images/logo.png";
 
 const testimonials = [
   {
-    img: TestimonialImg01,
+    img: logo,
     scene: "phones" as SceneKind,
     name: "محلات الموبايلات",
     company: "موبايلات",
     content:
-      "لأصحاب محلات الموبايلات اللي عايزين أداة أوضح لتنظيم شغل المحل يوم بيوم.",
+      "إدارة المبيعات والعملاء والمنتجات من مكان واحد بدل الدفاتر والحسابات المتفرقة.",
     categories: [1, 2],
   },
   {
-    img: TestimonialImg02,
+    img: logo,
     scene: "accessories" as SceneKind,
     name: "محلات الإكسسوارات",
     company: "إكسسوارات",
-    content:
-      "لمحلات الإكسسوارات اللي محتاجة طريقة أبسط تتابع بيها حركة الشغل.",
+    content: "تابع حركة البيع والمنتجات واعرف حسابات محلك بسهولة.",
     categories: [1, 2],
   },
   {
-    img: TestimonialImg03,
-    scene: "wallet" as SceneKind,
-    name: "التجار",
+    img: logo,
+    scene: "merchant" as SceneKind,
+    name: "التجار وأصحاب المحلات",
     company: "تجارة",
     content:
-      "للتاجر اللي بيدور على تطبيق واحد يرتب شغله بدل الحسابات المتفرقة.",
+      "خلي مبيعاتك وحساباتك وحركة شغلك منظمة وواضحة في تطبيق واحد.",
     categories: [1, 3],
   },
   {
-    img: TestimonialImg04,
+    img: logo,
     scene: "installments" as SceneKind,
-    name: "المحلات اللي بتبيع بالتقسيط",
+    name: "البيع بالتقسيط",
     company: "تقسيط",
     content:
-      "للمحلات اللي عملاءها بتشتري بالتقسيط ومحتاجة ترتيب أوضح للشغل مع العملاء.",
+      "تابع الأقساط والمدفوع والمتبقي ومواعيد السداد بدون حسابات متفرقة.",
     categories: [1, 4],
   },
   {
-    img: TestimonialImg05,
-    scene: "debts" as SceneKind,
-    name: "المحلات اللي بتبيع بالتقسيط",
-    company: "تقسيط",
-    content:
-      "مناسب للمحل اللي بيعتمد على التقسيط مع العملاء وعايز نظام يومي أسهل.",
-    categories: [1, 4],
-  },
-  {
-    img: TestimonialImg06,
+    img: logo,
     scene: "repair" as SceneKind,
     name: "محلات الصيانة",
     company: "صيانة",
-    content:
-      "لمحلات الصيانة اللي بتستقبل أجهزة عملاء وتحتاج تنظيم أوضح لشغل الورشة.",
+    content: "تابع أجهزة العملاء من وقت الاستلام وحتى الإصلاح والتسليم.",
     categories: [1, 5],
-  },
-  {
-    img: TestimonialImg07,
-    scene: "shop" as SceneKind,
-    name: "أصحاب المحلات",
-    company: "محل",
-    content:
-      "لصاحب المحل اللي عايز يشوف شغله أوضح ويدير يومه من غير تعقيد.",
-    categories: [1, 2, 3],
-  },
-  {
-    img: TestimonialImg08,
-    scene: "reports" as SceneKind,
-    name: "محلات الموبايلات",
-    company: "موبايلات",
-    content:
-      "لو عندك محل موبايلات وعايز تبدأ بنظام أوضح من الدفاتر الورقية.",
-    categories: [1, 2],
-  },
-  {
-    img: TestimonialImg09,
-    scene: "merchant" as SceneKind,
-    name: "أصحاب المحلات",
-    company: "محل",
-    content:
-      "لأصحاب المحلات اللي فريقهم صغير وعايزين أداة سهلة للاستخدام اليومي.",
-    categories: [1, 3, 5],
   },
 ];
 
@@ -103,7 +57,7 @@ export default function Testimonials() {
   const [category, setCategory] = useState<number>(1);
 
   return (
-    <div id="use-cases" className="mx-auto max-w-6xl px-4 sm:px-6">
+    <div id="use-cases" className="mx-auto max-w-7xl px-4 sm:px-6">
       <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
         {/* Section header */}
         <div className="mx-auto max-w-3xl pb-12 text-center">

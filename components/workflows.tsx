@@ -4,7 +4,7 @@ import CardScene from "@/components/card-scene";
 export default function Workflows() {
   return (
     <section id="how-it-works">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="pb-12 md:pb-20">
           {/* Section header */}
           <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
@@ -46,9 +46,9 @@ export default function Workflows() {
                   </svg>
                 </div>
                 {/* Image */}
-                <CardScene kind="sale" size="hero" />
+                <CardScene kind="sale" />
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-5">
                   <div className="mb-3">
                     <span className="btn-sm relative rounded-full bg-gray-800 px-2.5 py-0.5 text-xs font-normal">
                       <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
@@ -86,9 +86,9 @@ export default function Workflows() {
                   </svg>
                 </div>
                 {/* Image */}
-                <CardScene kind="track" size="hero" />
+                <CardScene kind="track" />
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-5">
                   <div className="mb-3">
                     <span className="btn-sm relative rounded-full bg-gray-800 px-2.5 py-0.5 text-xs font-normal">
                       <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
@@ -126,9 +126,9 @@ export default function Workflows() {
                   </svg>
                 </div>
                 {/* Image */}
-                <CardScene kind="dues" size="hero" />
+                <CardScene kind="dues" />
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-5">
                   <div className="mb-3">
                     <span className="btn-sm relative rounded-full bg-gray-800 px-2.5 py-0.5 text-xs font-normal">
                       <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">

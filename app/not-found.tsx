@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <main className="relative flex grow flex-col">
       <section>
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="py-12 text-center md:py-20">
             <h1 className="pb-4 font-nacelle text-3xl font-semibold text-gray-200 md:text-4xl">
               الصفحة غير موجودة

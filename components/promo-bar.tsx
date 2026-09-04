@@ -10,7 +10,7 @@ import {
 import { whatsappDiscountSubscribeUrl } from "@/lib/site-config";
 
 const enjoyBtn =
-  "shrink-0 rounded-md bg-[#dc2626] px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white hover:bg-[#b91c1c] sm:px-2.5 sm:text-xs";
+  "shrink-0 rounded-md bg-[#dc2626] px-2.5 py-1 text-xs font-semibold leading-none text-white hover:bg-[#b91c1c] md:rounded-lg md:px-4 md:py-2 md:text-base";
 
 export default function PromoBar({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -38,17 +38,17 @@ export default function PromoBar({ children }: { children: ReactNode }) {
           onClick={() => setOpen(false)}
         />
       ) : null}
-    <div className="relative sticky top-0 z-40 bg-gray-950">
-      <div className="overflow-hidden border-b border-red-500/25 bg-gray-950">
+    <div className="relative sticky top-0 z-40">
+      <div className="overflow-hidden bg-gray-950">
         <div
-          className="mx-auto flex max-w-6xl flex-nowrap items-center justify-center gap-1.5 px-2 py-1 sm:gap-2 sm:px-6"
+          className="mx-auto flex w-full max-w-7xl flex-nowrap items-center justify-center gap-2 px-3 py-2 md:gap-4 md:px-8 md:py-3"
           dir="rtl"
         >
-          <p className="flex min-w-0 items-center gap-1 text-[10px] font-medium leading-none text-gray-200 sm:gap-1.5 sm:text-xs">
-            <span className="inline-flex shrink-0 rounded-full bg-[#dc2626] px-1 py-0.5 text-[10px] font-bold leading-none text-white sm:px-1.5 sm:text-[11px]">
+          <p className="flex min-w-0 items-center gap-1.5 text-xs font-medium leading-none text-gray-200 md:gap-3 md:text-lg">
+            <span className="inline-flex shrink-0 rounded-full bg-[#dc2626] px-2 py-1 text-xs font-bold leading-none text-white md:px-3 md:py-1.5 md:text-sm">
               خصم {toArabicDigits(DISCOUNT_PERCENT)}٪
             </span>
-            <span className="hidden min-[380px]:inline">على أسعار الاشتراك</span>
+            <span className="hidden sm:inline">على أسعار الاشتراك</span>
             <span className="shrink-0 text-red-400">لفترة محدودة</span>
           </p>
           <button
@@ -75,7 +75,7 @@ export default function PromoBar({ children }: { children: ReactNode }) {
         }`}
         dir="rtl"
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="overflow-hidden rounded-b-2xl border border-t-0 border-gray-800 bg-gray-950/98 shadow-[0_28px_70px_-24px_rgba(0,0,0,.75)] backdrop-blur-md">
             <div className="max-h-[min(78vh,820px)] overflow-y-auto p-4 sm:p-5">
               <div className="mb-4 text-center sm:text-right">
@@ -87,7 +87,7 @@ export default function PromoBar({ children }: { children: ReactNode }) {
                 </h2>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {plans.map((plan) => {
                   const after = discountedPrice(plan.price);
                   const saved = plan.price - after;

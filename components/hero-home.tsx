@@ -4,16 +4,16 @@ import { whatsappStartUrl } from "@/lib/site-config";
 export default function HeroHome() {
   return (
     <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Hero content */}
-        <div className="py-12 md:py-20">
+        <div className="py-8 md:py-12">
           {/* Section header */}
-          <div className="pb-12 text-center md:pb-20">
+          <div className="pb-8 text-center md:pb-10">
             <h1
-              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl"
+              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-2xl font-semibold text-transparent sm:text-3xl md:text-4xl lg:text-[2.65rem]"
               data-aos="fade-up"
             >
-              إدارة محلك بالكامل من مكان واحد
+              إدارة محافظك الإلكترونية ومحلك بالكامل مع Cashy Link
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
@@ -52,7 +52,9 @@ export default function HeroHome() {
             </div>
           </div>
 
-          <ModalVideo />
+          <div className="mx-auto w-full max-w-3xl md:max-w-4xl">
+            <ModalVideo />
+          </div>
         </div>
       </div>
     </section>

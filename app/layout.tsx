@@ -1,6 +1,6 @@
 import "./css/style.css";
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cairo } from "next/font/google";
 
 import Header from "@/components/ui/header";
@@ -15,10 +15,15 @@ const cairo = Cairo({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} | إدارة محلك بالكامل من مكان واحد`,
+    default: `${SITE_NAME} | إدارة محافظك الإلكترونية ومحلك بالكامل`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -44,7 +49,7 @@ export const metadata: Metadata = {
     locale: "ar_EG",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} | إدارة محلك بالكامل من مكان واحد`,
+    title: `${SITE_NAME} | إدارة محافظك الإلكترونية ومحلك بالكامل`,
     description: SITE_DESCRIPTION,
     images: [
       {
@@ -57,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} | إدارة محلك بالكامل من مكان واحد`,
+    title: `${SITE_NAME} | إدارة محافظك الإلكترونية ومحلك بالكامل`,
     description: SITE_DESCRIPTION,
     images: ["/images/hero-image-01.jpg"],
   },
@@ -83,7 +88,7 @@ export default function RootLayout({
         className={`${cairo.className} bg-gray-950 text-base text-gray-200 antialiased`}
       >
         <JsonLd />
-        <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+        <div className="flex min-h-screen flex-col">
           <Header />
           {children}
           <SupportChat />

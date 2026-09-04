@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         {/* Footer illustration */}
         <div
-          className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -translate-x-1/2"
+          className="pointer-events-none absolute bottom-0 left-1/2 -z-10 hidden -translate-x-1/2 md:block"
           aria-hidden="true"
         >
           <Image

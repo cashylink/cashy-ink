@@ -83,12 +83,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable}>
+    <html lang="ar" dir="rtl" className={`${cairo.variable} overflow-x-clip`}>
       <body
-        className={`${cairo.className} bg-gray-950 text-base text-gray-200 antialiased`}
+        className={`${cairo.className} overflow-x-clip bg-gray-950 text-base text-gray-200 antialiased overscroll-x-none`}
       >
         <JsonLd />
-        <div className="flex min-h-screen flex-col">
+        <div className="flex min-h-screen flex-col overflow-x-clip">
           <Header />
           {children}
           <SupportChat />

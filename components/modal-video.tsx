@@ -25,6 +25,7 @@ export default function ModalVideo() {
   const [active, setActive] = useState(0);
   const frameRef = useRef<HTMLDivElement>(null);
   const startX = useRef<number | null>(null);
+  const startY = useRef<number | null>(null);
   const dragging = useRef(false);
 
   const play = () => {
@@ -49,20 +50,27 @@ export default function ModalVideo() {
 
   const onPointerDown = (event: React.PointerEvent) => {
     startX.current = event.clientX;
+    startY.current = event.clientY;
     dragging.current = false;
   };
 
   const onPointerMove = (event: React.PointerEvent) => {
-    if (startX.current === null) return;
-    if (Math.abs(event.clientX - startX.current) > 12) dragging.current = true;
+    if (startX.current === null || startY.current === null) return;
+    const dx = event.clientX - startX.current;
+    const dy = event.clientY - startY.current;
+    if (Math.abs(dx) > 18 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      dragging.current = true;
+    }
   };
 
   const onPointerUp = (event: React.PointerEvent) => {
-    if (startX.current === null) return;
-    const delta = event.clientX - startX.current;
+    if (startX.current === null || startY.current === null) return;
+    const dx = event.clientX - startX.current;
+    const dy = event.clientY - startY.current;
     startX.current = null;
-    if (Math.abs(delta) < 40) return;
-    if (delta < 0) goTo((active + 1) % slides.length);
+    startY.current = null;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
+    if (dx < 0) goTo((active + 1) % slides.length);
     else goTo((active - 1 + slides.length) % slides.length);
   };
 
@@ -71,7 +79,7 @@ export default function ModalVideo() {
   return (
     <div className="relative" id="hero-video" ref={frameRef}>
       <div
-        className="pointer-events-none absolute bottom-8 left-1/2 -z-10 -ml-28 -translate-x-1/2 translate-y-1/2"
+        className="pointer-events-none absolute bottom-8 left-1/2 -z-10 hidden -ml-28 -translate-x-1/2 translate-y-1/2 md:block"
         aria-hidden="true"
       >
         <Image

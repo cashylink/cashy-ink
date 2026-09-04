@@ -48,6 +48,7 @@ export default function Spotlight({
   };
 
   const onMouseMove = () => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
       const { w, h } = containerSize.current;

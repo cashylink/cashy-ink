@@ -11,7 +11,7 @@ export default function PageIllustration({
   return (
     <>
       <div
-        className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/4"
+        className="pointer-events-none absolute left-1/2 top-0 -z-10 hidden -translate-x-1/4 md:block"
         aria-hidden="true"
       >
         <Image

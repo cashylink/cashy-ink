@@ -41,7 +41,7 @@ export default function PromoBar({ children }: { children: ReactNode }) {
     <div className="relative sticky top-0 z-40">
       <div className="overflow-hidden bg-gray-950">
         <div
-          className="mx-auto flex w-full max-w-7xl flex-nowrap items-center justify-center gap-2 px-3 py-2 md:gap-4 md:px-8 md:py-3"
+          className="mx-auto flex w-full max-w-7xl min-w-0 flex-nowrap items-center justify-center gap-2 overflow-x-hidden px-3 py-2 md:gap-4 md:px-8 md:py-3"
           dir="rtl"
         >
           <p className="flex min-w-0 items-center gap-1.5 text-xs font-medium leading-none text-gray-200 md:gap-3 md:text-lg">

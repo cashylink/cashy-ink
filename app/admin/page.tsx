@@ -5,8 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { ADMIN_EMAIL } from "@/lib/admin";
-import { emptyDownloads, type DownloadLink } from "@/lib/download-apps";
+import { type DownloadLink } from "@/lib/download-apps";
 import {
+  emptyDownloads,
   fetchDownloadLinks,
   saveDownloadLink,
 } from "@/lib/download-store";

@@ -3,9 +3,8 @@ import "./css/style.css";
 import type { Metadata, Viewport } from "next";
 import { Cairo } from "next/font/google";
 
-import Header from "@/components/ui/header";
+import AppChrome from "@/components/app-chrome";
 import JsonLd from "@/components/json-ld";
-import SupportChat from "@/components/support-chat";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site-config";
 
 const cairo = Cairo({
@@ -89,9 +88,7 @@ export default function RootLayout({
       >
         <JsonLd />
         <div className="flex min-h-screen flex-col overflow-x-clip">
-          <Header />
-          {children}
-          <SupportChat />
+          <AppChrome>{children}</AppChrome>
         </div>
       </body>
     </html>

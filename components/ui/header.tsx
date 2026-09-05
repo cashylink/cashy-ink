@@ -15,7 +15,15 @@ export default function Header() {
               <Logo />
             </div>
 
-            <ul className="relative z-10 flex flex-1 items-center justify-end gap-3 md:gap-4">
+            <ul className="relative z-10 flex flex-1 items-center justify-end gap-2 md:gap-4">
+              <li>
+                <Link
+                  href="/#downloads"
+                  className="btn-sm relative isolate bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] py-[5px] text-gray-200 before:pointer-events-none before:absolute before:inset-0 before:z-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%] md:rounded-xl md:px-5 md:py-2.5 md:text-base"
+                >
+                  <span className="relative z-10">تحميل</span>
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/#pricing"

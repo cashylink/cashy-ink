@@ -105,6 +105,14 @@ export default function Footer() {
               <li>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="#downloads"
+                >
+                  تحميل التطبيقات
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
                   href="#pricing"
                 >
                   الباقات

@@ -3,12 +3,12 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import { ADMIN_EMAIL, isAdminEmail } from "@/lib/admin";
+import { isAdminEmail } from "@/lib/admin";
 import { getFirebaseAuth, isFirebaseConfigured } from "@/lib/firebase";
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState(ADMIN_EMAIL);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);

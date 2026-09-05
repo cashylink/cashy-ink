@@ -1,5 +1,9 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { whatsappSubscribeUrl } from "@/lib/site-config";
-import { plans, toArabicDigits } from "@/lib/plans";
+import { clonePlans, toArabicDigits, type Plan } from "@/lib/plans";
+import { fetchPlans } from "@/lib/site-content-store";
 import Spotlight from "@/components/spotlight";
 
 const secondaryBtn =
@@ -9,6 +13,14 @@ const primaryBtn =
   "btn w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%]";
 
 export default function Pricing() {
+  const [plans, setPlans] = useState<Plan[]>(clonePlans());
+
+  useEffect(() => {
+    fetchPlans()
+      .then(setPlans)
+      .catch(() => undefined);
+  }, []);
+
   return (
     <section id="pricing">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -30,7 +42,7 @@ export default function Pricing() {
           <Spotlight className="group mx-auto grid max-w-sm items-stretch gap-6 sm:max-w-none sm:grid-cols-2 lg:max-w-none lg:grid-cols-4">
             {plans.map((plan) => (
               <div
-                key={plan.name}
+                key={plan.id}
                 className={`group/card relative h-full overflow-hidden rounded-2xl p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100 ${plan.featured ? "bg-indigo-500" : "bg-gray-800"}`}
               >
                 <div className="relative z-20 flex h-full flex-col rounded-[inherit] bg-gray-950 p-5">
@@ -56,8 +68,8 @@ export default function Pricing() {
                   </div>
                   <p className="mb-5 text-sm text-gray-300">{plan.extra}</p>
                   <ul className="mb-6 grow space-y-3 text-sm text-gray-200">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2">
+                    {plan.features.map((feature, index) => (
+                      <li key={`${plan.id}-${index}`} className="flex items-start gap-2">
                         <svg
                           className="mt-0.5 shrink-0 fill-indigo-500"
                           xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,16 @@
 export const DISCOUNT_PERCENT = 25;
 
+export const PLAN_IDS = [
+  "quarterly",
+  "semiannual",
+  "annual",
+  "lifetime",
+] as const;
+
+export type PlanId = (typeof PLAN_IDS)[number];
+
 export type Plan = {
+  id: PlanId;
   name: string;
   summary: string;
   price: number;
@@ -11,8 +21,19 @@ export type Plan = {
   badge: string;
 };
 
-export const plans: Plan[] = [
+export type PromoSettings = {
+  enabled: boolean;
+  percent: number;
+};
+
+export const defaultPromo: PromoSettings = {
+  enabled: true,
+  percent: DISCOUNT_PERCENT,
+};
+
+export const defaultPlans: Plan[] = [
   {
+    id: "quarterly",
     name: "ربع سنوية",
     summary: "٣ أشهر وصول كامل",
     price: 600,
@@ -28,6 +49,7 @@ export const plans: Plan[] = [
     badge: "",
   },
   {
+    id: "semiannual",
     name: "نصف سنوية",
     summary: "٦ أشهر وصول كامل",
     price: 1000,
@@ -43,6 +65,7 @@ export const plans: Plan[] = [
     badge: "",
   },
   {
+    id: "annual",
     name: "سنوية",
     summary: "١٢ شهرًا وصول كامل",
     price: 1600,
@@ -59,6 +82,7 @@ export const plans: Plan[] = [
     badge: "الأكثر طلبًا",
   },
   {
+    id: "lifetime",
     name: "مدى الحياة",
     summary: "دفعة واحدة — بدون تجديد",
     price: 5000,
@@ -75,6 +99,15 @@ export const plans: Plan[] = [
     badge: "دفعة واحدة",
   },
 ];
+
+export const plans = defaultPlans;
+
+export function clonePlans(): Plan[] {
+  return defaultPlans.map((plan) => ({
+    ...plan,
+    features: [...plan.features],
+  }));
+}
 
 export function toArabicDigits(value: number | string) {
   return String(value).replace(/\d/g, (digit) => "٠١٢٣٤٥٦٧٨٩"[Number(digit)]);

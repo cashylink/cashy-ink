@@ -2,11 +2,14 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import {
-  DISCOUNT_PERCENT,
+  clonePlans,
+  defaultPromo,
   discountedPrice,
-  plans,
   toArabicDigits,
+  type Plan,
+  type PromoSettings,
 } from "@/lib/plans";
+import { fetchPlans, fetchPromo } from "@/lib/site-content-store";
 import { whatsappDiscountSubscribeUrl } from "@/lib/site-config";
 
 const enjoyBtn =
@@ -14,6 +17,17 @@ const enjoyBtn =
 
 export default function PromoBar({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
+  const [plans, setPlans] = useState<Plan[]>(clonePlans());
+  const [promo, setPromo] = useState<PromoSettings>(defaultPromo);
+
+  useEffect(() => {
+    Promise.all([fetchPlans(), fetchPromo()])
+      .then(([nextPlans, nextPromo]) => {
+        setPlans(nextPlans);
+        setPromo(nextPromo);
+      })
+      .catch(() => undefined);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -27,6 +41,12 @@ export default function PromoBar({ children }: { children: ReactNode }) {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  if (!promo.enabled) {
+    return children;
+  }
+
+  const percent = promo.percent;
 
   return (
     <>
@@ -46,7 +66,7 @@ export default function PromoBar({ children }: { children: ReactNode }) {
         >
           <p className="flex min-w-0 items-center gap-1.5 text-xs font-medium leading-none text-gray-200 md:gap-3 md:text-lg">
             <span className="inline-flex shrink-0 rounded-full bg-[#dc2626] px-2 py-1 text-xs font-bold leading-none text-white md:px-3 md:py-1.5 md:text-sm">
-              خصم {toArabicDigits(DISCOUNT_PERCENT)}٪
+              خصم {toArabicDigits(percent)}٪
             </span>
             <span className="hidden sm:inline">على أسعار الاشتراك</span>
             <span className="shrink-0 text-red-400">لفترة محدودة</span>
@@ -83,17 +103,17 @@ export default function PromoBar({ children }: { children: ReactNode }) {
                   الباقات بعد الخصم
                 </p>
                 <h2 className="mt-1 font-nacelle text-lg font-semibold text-white">
-                  وفّر {toArabicDigits(DISCOUNT_PERCENT)}٪ واختر الباقة المناسبة
+                  وفّر {toArabicDigits(percent)}٪ واختر الباقة المناسبة
                 </h2>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {plans.map((plan) => {
-                  const after = discountedPrice(plan.price);
+                  const after = discountedPrice(plan.price, percent);
                   const saved = plan.price - after;
                   return (
                     <article
-                      key={plan.name}
+                      key={plan.id}
                       className={`flex flex-col rounded-2xl bg-gray-950 p-4 ring-1 ${
                         plan.featured ? "ring-indigo-500" : "ring-gray-800"
                       }`}
@@ -103,7 +123,7 @@ export default function PromoBar({ children }: { children: ReactNode }) {
                           {plan.name}
                         </h3>
                         <span className="rounded-full bg-red-600/20 px-2 py-0.5 text-[11px] font-semibold text-red-400">
-                          خصم {toArabicDigits(DISCOUNT_PERCENT)}٪
+                          خصم {toArabicDigits(percent)}٪
                         </span>
                       </div>
                       <p className="mb-3 text-xs text-gray-400">{plan.summary}</p>
@@ -128,7 +148,7 @@ export default function PromoBar({ children }: { children: ReactNode }) {
                             originalLabel: toArabicDigits(plan.price),
                             discountedLabel: toArabicDigits(after),
                             savedLabel: toArabicDigits(saved),
-                            percent: toArabicDigits(DISCOUNT_PERCENT),
+                            percent: toArabicDigits(percent),
                           })}
                           target="_blank"
                           rel="noopener noreferrer"

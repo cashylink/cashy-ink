@@ -36,7 +36,7 @@ export default function Downloads() {
               حمّل تطبيق Cashy Link
             </h2>
             <p className="text-lg text-indigo-200/65">
-              اختار النسخة المناسبة لجهازك. رابط التحميل بيتحدث من لوحة الأدمن.
+              اختار النسخة المناسبة لجهازك.
             </p>
           </div>
 

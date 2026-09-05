@@ -62,9 +62,6 @@ export default function AdminLoginPage() {
         <h1 className="mt-2 font-nacelle text-2xl font-semibold text-white">
           تسجيل الدخول
         </h1>
-        <p className="mt-2 text-sm text-gray-400">
-          ادخل بحساب الأدمن لإدارة روابط تحميل التطبيقات.
-        </p>
 
         {!isFirebaseConfigured() ? (
           <p className="mt-4 rounded-xl bg-red-500/10 px-3 py-2 text-sm text-red-300">

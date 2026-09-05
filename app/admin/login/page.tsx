@@ -3,7 +3,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import { ADMIN_EMAIL } from "@/lib/admin";
+import { ADMIN_EMAIL, isAdminEmail } from "@/lib/admin";
 import { getFirebaseAuth, isFirebaseConfigured } from "@/lib/firebase";
 
 export default function AdminLoginPage() {
@@ -17,7 +17,7 @@ export default function AdminLoginPage() {
     const auth = getFirebaseAuth();
     if (!auth) return;
     return onAuthStateChanged(auth, (user) => {
-      if (user?.email?.toLowerCase() === ADMIN_EMAIL) {
+      if (isAdminEmail(user?.email)) {
         router.replace("/admin");
       }
     });
@@ -39,7 +39,7 @@ export default function AdminLoginPage() {
         email.trim().toLowerCase(),
         password,
       );
-      if (result.user.email?.toLowerCase() !== ADMIN_EMAIL) {
+      if (!isAdminEmail(result.user.email)) {
         await auth.signOut();
         setError("هذا الحساب غير مسموح له بدخول لوحة الأدمن.");
         return;

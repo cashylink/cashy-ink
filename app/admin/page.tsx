@@ -4,7 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { ADMIN_EMAIL } from "@/lib/admin";
+import { ADMIN_EMAIL, isAdminEmail } from "@/lib/admin";
 import { type DownloadLink } from "@/lib/download-apps";
 import {
   emptyDownloads,
@@ -27,7 +27,7 @@ export default function AdminPage() {
       return;
     }
     return onAuthStateChanged(auth, async (user) => {
-      if (!user || user.email?.toLowerCase() !== ADMIN_EMAIL) {
+      if (!user || !isAdminEmail(user.email)) {
         router.replace("/admin/login");
         return;
       }

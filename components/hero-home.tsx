@@ -1,4 +1,5 @@
 import ModalVideo from "@/components/modal-video";
+import WalletLogos from "@/components/wallet-logos";
 import { whatsappStartUrl } from "@/lib/site-config";
 
 export default function HeroHome() {
@@ -15,6 +16,7 @@ export default function HeroHome() {
             >
               إدارة محافظك الإلكترونية ومحلك بالكامل مع Cashy Link
             </h1>
+            <WalletLogos />
             <div className="mx-auto max-w-3xl">
               <p
                 className="mb-8 text-xl text-indigo-200/65"

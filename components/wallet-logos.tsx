@@ -26,6 +26,16 @@ const wallets = [
     src: "/images/wallets/vodafone-cash.jpg",
     cover: true,
   },
+  {
+    name: "axis",
+    src: "/images/wallets/axis.jpg",
+    cover: true,
+  },
+  {
+    name: "Fawry",
+    src: "/images/wallets/fawry.png",
+    cover: true,
+  },
 ] as const;
 
 export default function WalletLogos() {

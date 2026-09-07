@@ -279,6 +279,13 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        <p
+          className="border-t border-gray-800/80 py-6 text-center text-sm leading-7 text-indigo-200/70"
+          dir="rtl"
+        >
+          متاح كل المحافظ: WE Pay — Orange Cash — Vodafone Cash — Etisalat Cash
+          — Insta Pay — Axis Pay — Fawry
+        </p>
       </div>
     </footer>
   );
